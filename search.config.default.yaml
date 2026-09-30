@@ -1,0 +1,131 @@
+# =============================================================================
+# Product search — default configuration (documented reference).
+# Copy to search.config.yaml and adjust. Every value here mirrors the compiled
+# defaults; omit sections you do not need to change.
+#
+# Mode presets (development | production | benchmark | debug) overlay defaults;
+# explicit values below always win over presets.
+# =============================================================================
+
+mode: development
+
+database:
+  # Full URL wins over individual fields. DATABASE_URL / PG* env vars are
+  # picked up automatically by the defaults.
+  # url: postgres://postgres:127.0.0.1:5432/postgres
+  host: 127.0.0.1
+  port: 5432
+  user: postgres
+  # password: secret
+  database: postgres
+  pool_max: 10
+  connect_timeout_ms: 5000
+  statement_timeout_ms: 15000
+
+search:
+  default_limit: 10
+  max_limit: 100
+  max_query_length: 512
+
+retrieval:
+  bm25:
+    enabled: true
+    top_k: 50
+    k1: 1.2
+    b: 0.75
+    field_weights:        # BM25F: code matches dominate, then name, attributes
+      code: 4.0
+      name: 2.0
+      attributes: 1.5
+      brand: 1.0
+      category: 1.0
+    boosts:               # additive deterministic signals (kept out of BM25F itself)
+      exact_code: 25.0    # query code == product code (canonical forms)
+      code_prefix: 8.0    # "T110" vs "T110B45"
+      numeric_attribute: 2.0  # "110" matching "diamètre 110 mm"
+    stopwords: [le, la, les, de, des, du, un, une, et, en, pour, avec, au, aux, sur, dans, par]
+
+  vector:
+    enabled: true
+    top_k: 50
+    metric: cosine
+    min_score: 0.15       # filters out-of-domain noise; tune per embedding model
+                          # (hashing ~0.15; e5/BGE models: unrelated pairs often > 0.5)
+
+fusion:
+  provider: rrf
+  k: 60
+  top_k: 50
+  weights:
+    bm25: 1.0
+    vector: 1.0
+
+reranking:
+  enabled: true
+  provider: noop          # noop | cross-encoder | von
+  candidate_limit: 50     # NEVER rerank the whole catalog
+  result_limit: 10
+  fallback: [noop]        # chain tried in order when the primary fails
+  cross_encoder:
+    model: mixedbread-ai/mxbai-rerank-xsmall-multilingual-v1
+    batch_size: 16
+    dtype: q8
+    max_text_length: 512
+  von:
+    backend: python       # python | mock (tests)
+    python_path: python3
+    worker_path: adapters/python/model_worker.py
+    model: Qwen/Qwen2.5-0.5B-Instruct
+    timeout_ms: 5000
+    batch_size: 8
+    max_text_length: 512
+    warmup_timeout_ms: 120000   # first model download can be slow
+
+ranking:
+  policy: reranker        # reranker (default) | weighted (experimental, evaluate first!)
+  weights:                # only used when policy: weighted
+    bm25: 0.2
+    vector: 0.2
+    rrf: 0.2
+    reranker: 0.4
+
+embedding:
+  provider: hashing       # hashing (zero-dependency baseline) | transformers | mock
+  model: Xenova/multilingual-e5-small   # used by transformers provider
+  model_version: hashing-v1
+  dimensions: 384         # must match the model (and the pgvector column)
+  batch_size: 64
+  normalize: true
+
+normalization:
+  enabled: true
+  provider: deterministic # deterministic | tinyllm | none | mock
+  language: fr
+  typo:
+    enabled: true
+    max_edit_distance: 2
+    min_token_length: 4
+  tinyllm:
+    python_path: python3
+    worker_path: adapters/python/model_worker.py
+    model: Qwen/Qwen2.5-0.5B-Instruct
+    timeout_ms: 3000
+    max_input_chars: 256
+
+cache:
+  enabled: true
+  max_entries: 500
+  ttl_ms: 300000          # 0 = no expiry; keys include index/model/config versions
+
+logging:
+  enabled: true
+  level: info             # debug | info | warn | error
+  pretty: true            # false = JSON lines (production)
+  debug_search: false
+  events:
+    enabled: false        # persist searches to search_log
+    behavior_events: false  # enable click/purchase signal collection (no ranking use in v1)
+
+documents:
+  preload: true           # hydrate all documents at startup (fast for <= 100k)
+  lru_max: 200000

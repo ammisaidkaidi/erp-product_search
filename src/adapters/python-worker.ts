@@ -51,6 +51,7 @@ export class PythonModelWorker {
   private crashReason: string | null = null;
   private stderrTail: string[] = [];
   private readonly events = new EventEmitter();
+  private exitHandler: (() => void) | null = null;
 
   constructor(private readonly options: PythonModelWorkerOptions) {}
 
@@ -94,6 +95,14 @@ export class PythonModelWorker {
     }
     this.child = child;
     this.wire(child);
+    // The worker must never keep the host process alive: unref all handles and
+    // kill the child synchronously on process exit.
+    child.unref();
+    (child.stdin as unknown as { unref(): void } | null)?.unref();
+    (child.stdout as unknown as { unref(): void } | null)?.unref();
+    (child.stderr as unknown as { unref(): void } | null)?.unref();
+    this.exitHandler = () => this.kill();
+    process.on("exit", this.exitHandler);
 
     try {
       const pong = await this.request("ping", {}, this.options.warmupTimeoutMs);
@@ -232,6 +241,10 @@ export class PythonModelWorker {
   }
 
   kill(): void {
+    if (this.exitHandler) {
+      process.removeListener("exit", this.exitHandler);
+      this.exitHandler = null;
+    }
     if (this.child) {
       this.child.removeAllListeners();
       this.child.kill();

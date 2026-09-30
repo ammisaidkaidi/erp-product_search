@@ -173,7 +173,7 @@ export class PgSearchStore implements SearchStore {
         const versions = batch.map((r) => r.builderVersion);
         const fields = batch.map((r) => JSON.stringify(serializeProduct(r.product)));
         await client.query(
-          `INSERT INTO product_search (product_id, search_document, document_hash, builder_version, fields, updated_at)
+          `INSERT INTO product_search (product_id, search_document, document_hash, builder_version, fields)
            SELECT * FROM unnest($1::text[], $2::text[], $3::text[], $4::text[], $5::jsonb[])
            ON CONFLICT (product_id) DO UPDATE SET
              search_document = EXCLUDED.search_document,
@@ -261,7 +261,7 @@ export class PgSearchStore implements SearchStore {
         const models = batch.map((r) => r.modelVersion);
         const hashes = batch.map((r) => r.documentHash);
         await client.query(
-          `INSERT INTO product_embeddings (product_id, embedding, model_version, document_hash, updated_at)
+          `INSERT INTO product_embeddings (product_id, embedding, model_version, document_hash)
            SELECT * FROM unnest($1::text[], $2::vector[], $3::text[], $4::text[])
            ON CONFLICT (product_id) DO UPDATE SET
              embedding = EXCLUDED.embedding,

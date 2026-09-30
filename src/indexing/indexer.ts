@@ -6,6 +6,7 @@ import type { Embedder } from "../retrieval/vector/embedder.js";
 import type { InMemoryBm25Index } from "../retrieval/lexical/bm25f.js";
 import type { SearchStore } from "../store/search-store.js";
 import type { IndexVersionTracker } from "../engine/version-tracker.js";
+import type { ProductProvider } from "./product-provider.js";
 
 export interface IndexerDeps {
   store: SearchStore;
@@ -97,7 +98,14 @@ export class SearchIndexer {
    * no longer exist, re-embeds changed documents, prunes embeddings of other
    * model versions.
    */
-  async rebuild(products: AsyncIterable<Product> | Iterable<Product>, options: { dropFirst?: boolean } = {}): Promise<IndexEvent> {
+  async rebuild(
+    source: AsyncIterable<Product> | Iterable<Product> | ProductProvider,
+    options: { dropFirst?: boolean } = {},
+  ): Promise<IndexEvent> {
+    const products: AsyncIterable<Product> | Iterable<Product> =
+      typeof (source as ProductProvider)?.fetchAll === "function"
+        ? (source as ProductProvider).fetchAll()
+        : (source as AsyncIterable<Product> | Iterable<Product>);
     const start = performance.now();
     if (options.dropFirst) {
       await this.deps.store.setConfig("index", { version: 0, updatedAt: new Date().toISOString() });

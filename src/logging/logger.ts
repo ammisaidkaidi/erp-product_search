@@ -30,13 +30,9 @@ export class ConsoleLogger implements Logger {
         .filter((entry): entry is [string, string | number | boolean | null] => entry[1] !== undefined)
         .map(([k, v]) => `${k}=${format(v)}`);
       const line = [ts, level.toUpperCase().padEnd(5), message, ...parts].join(" ");
-      // eslint-disable-next-line no-console
-      (level === "error" ? console.error : level === "warn" ? console.warn : console.log)(line);
+      process.stderr.write(line + "\n");
     } else {
-      // eslint-disable-next-line no-console
-      (level === "error" ? console.error : console.log)(
-        JSON.stringify({ ts, level, message, ...all }),
-      );
+      process.stderr.write(JSON.stringify({ ts, level, message, ...all }) + "\n");
     }
   }
 

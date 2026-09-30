@@ -114,6 +114,18 @@ export class MemorySearchStore implements SearchStore {
   async logBehaviorEvent(row: BehaviorEventRow): Promise<void> {
     this.behaviorEvents.push(row);
   }
+
+  async saveEvaluationQueries(entries: Array<{ query: string; relevantProductIds: string[]; notes?: string }>): Promise<void> {
+    for (const entry of entries) {
+      this.evaluationQueries.push(entry);
+    }
+  }
+
+  async listEvaluationQueries(): Promise<Array<{ query: string; relevantProductIds: string[]; notes?: string }>> {
+    return [...this.evaluationQueries];
+  }
+
+  readonly evaluationQueries: Array<{ query: string; relevantProductIds: string[]; notes?: string }> = [];
 }
 
 export function cosineSimilarity(a: readonly number[], b: readonly number[]): number {

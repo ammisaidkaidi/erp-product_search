@@ -359,6 +359,29 @@ export class PgSearchStore implements SearchStore {
       [row.searchId ?? null, row.eventType, row.query ?? null, row.productId ?? null, row.position ?? null, JSON.stringify(row.payload ?? {})],
     );
   }
+
+  async saveEvaluationQueries(entries: Array<{ query: string; relevantProductIds: string[]; notes?: string }>): Promise<void> {
+    if (entries.length === 0) return;
+    await this.withClient(async (client) => {
+      for (const entry of entries) {
+        await client.query(
+          `INSERT INTO search_evaluation_queries (query, relevant_product_ids, notes) VALUES ($1, $2::jsonb, $3)`,
+          [entry.query, JSON.stringify(entry.relevantProductIds), entry.notes ?? null],
+        );
+      }
+    });
+  }
+
+  async listEvaluationQueries(): Promise<Array<{ query: string; relevantProductIds: string[]; notes?: string }>> {
+    const result = await this.client.query<{ query: string; relevant_product_ids: unknown; notes: string | null }>(
+      `SELECT query, relevant_product_ids, notes FROM search_evaluation_queries ORDER BY id`,
+    );
+    return result.rows.map((row) => ({
+      query: row.query,
+      relevantProductIds: (row.relevant_product_ids as string[]) ?? [],
+      ...(row.notes ? { notes: row.notes } : {}),
+    }));
+  }
 }
 
 // ------------------------------------------------------------------- helpers

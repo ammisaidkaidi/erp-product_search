@@ -75,4 +75,8 @@ export interface SearchStore {
 
   logSearchEvent(row: SearchLogRow): Promise<void>;
   logBehaviorEvent(row: BehaviorEventRow): Promise<void>;
+
+  /** Evaluation dataset persistence (search_evaluation_queries table). */
+  saveEvaluationQueries(entries: Array<{ query: string; relevantProductIds: string[]; notes?: string }>): Promise<void>;
+  listEvaluationQueries(): Promise<Array<{ query: string; relevantProductIds: string[]; notes?: string }>>;
 }

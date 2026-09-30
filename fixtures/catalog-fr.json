@@ -1,0 +1,2652 @@
+[
+  {
+    "id": "P000001",
+    "code": "TD110L4BL0",
+    "name": "Tube PVC évacuation",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "110 mm",
+      "length": "4 m",
+      "material": "PVC"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000002",
+    "code": "TPD50L2BL1",
+    "name": "Tube PER",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "50 mm",
+      "length": "2 m",
+      "material": "PPR"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000003",
+    "code": "RD50GR2",
+    "name": "Réduction PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "50 mm",
+      "material": "PVC"
+    },
+    "brand": "PlumboPro",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000004",
+    "code": "VD25BL3",
+    "name": "Vanne d'arrêt laiton",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "25 mm",
+      "material": "laiton"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000005",
+    "code": "CL25S4BL4",
+    "name": "Câble rigide H07V-U",
+    "attributes": {
+      "color": "bleu",
+      "length": "25 m",
+      "section": "4 mm²",
+      "material": "cuivre"
+    },
+    "brand": "Somaterial",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000006",
+    "code": "GD32L100BL5",
+    "name": "Gaine ICTA",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "32 mm",
+      "length": "100 m",
+      "material": "PE"
+    },
+    "brand": "TechnoFix",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000007",
+    "code": "JGR6",
+    "name": "Mastic sanitaire",
+    "attributes": {
+      "color": "gris",
+      "material": "caoutchouc"
+    },
+    "brand": "BatiPlus",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000008",
+    "code": "SW120NO7",
+    "name": "Poste à souder",
+    "attributes": {
+      "color": "noir",
+      "power": "120 W"
+    },
+    "brand": "ElecMax",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000009",
+    "code": "TD80L4OR8",
+    "name": "Tube PVC évacuation",
+    "attributes": {
+      "color": "orange",
+      "diameter": "80 mm",
+      "length": "4 m",
+      "material": "PVC"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000010",
+    "code": "TPD25L2BL9",
+    "name": "Tube PEHD assainissement",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "25 mm",
+      "length": "2 m",
+      "material": "PPR"
+    },
+    "brand": "PlumboPro",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000011",
+    "code": "RD100BL10",
+    "name": "Raccord à bague PVC",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "100 mm",
+      "material": "PVC"
+    },
+    "brand": "PlumboPro",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000012",
+    "code": "VD40CH11",
+    "name": "Vanne à boisseau PVC",
+    "attributes": {
+      "color": "chromé",
+      "diameter": "40 mm",
+      "material": "laiton"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000013",
+    "code": "CL50S4GR12",
+    "name": "Câble rigide 3G",
+    "attributes": {
+      "color": "gris",
+      "length": "50 m",
+      "section": "4 mm²",
+      "material": "cuivre"
+    },
+    "brand": "Somaterial",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000014",
+    "code": "GD40L100BL13",
+    "name": "Chemins de câbles",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "40 mm",
+      "length": "100 m",
+      "material": "PE"
+    },
+    "brand": "TechnoFix",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000015",
+    "code": "JNO14",
+    "name": "Ruban étanche",
+    "attributes": {
+      "color": "noir",
+      "material": "caoutchouc"
+    },
+    "brand": "TechnoFix",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000016",
+    "code": "SW3NO15",
+    "name": "Buse de rechange",
+    "attributes": {
+      "color": "noir",
+      "power": "3 kW"
+    },
+    "brand": "BatiPlus",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000017",
+    "code": "TD110L6OR16",
+    "name": "Tube PVC assainissement",
+    "attributes": {
+      "color": "orange",
+      "diameter": "110 mm",
+      "length": "6 m",
+      "material": "PVC"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000018",
+    "code": "TPD16L6BL17",
+    "name": "Tube PPR pression",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "16 mm",
+      "length": "6 m",
+      "material": "PEHD"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000019",
+    "code": "RD80BL18",
+    "name": "Réduction PVC",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "80 mm",
+      "material": "PPR"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000020",
+    "code": "VD50BL19",
+    "name": "Vanne à papillon PVC",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "50 mm",
+      "material": "laiton"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000021",
+    "code": "CL100S4NO20",
+    "name": "Câble rigide 3G",
+    "attributes": {
+      "color": "noir",
+      "length": "100 m",
+      "section": "4 mm²",
+      "material": "cuivre"
+    },
+    "brand": "Somaterial",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000022",
+    "code": "GD40L100GR21",
+    "name": "Gaine ICTA",
+    "attributes": {
+      "color": "gris",
+      "diameter": "40 mm",
+      "length": "100 m",
+      "material": "PE"
+    },
+    "brand": "PlumboPro",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000023",
+    "code": "JGR22",
+    "name": "Mastic sanitaire",
+    "attributes": {
+      "color": "gris",
+      "material": "silicone"
+    },
+    "brand": "TechnoFix",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000024",
+    "code": "SW1.5NO23",
+    "name": "Poste à souder MIG",
+    "attributes": {
+      "color": "noir",
+      "power": "1.5 kW"
+    },
+    "brand": "PlumboPro",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000025",
+    "code": "TD100L4OR24",
+    "name": "Tube PVC drainage",
+    "attributes": {
+      "color": "orange",
+      "diameter": "100 mm",
+      "length": "4 m",
+      "material": "PVC"
+    },
+    "brand": "PlumboPro",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000026",
+    "code": "TPD32L2GR25",
+    "name": "Tube PPR pression",
+    "attributes": {
+      "color": "gris",
+      "diameter": "32 mm",
+      "length": "2 m",
+      "material": "PPR"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000027",
+    "code": "RD125BL26",
+    "name": "Coude PVC 90°",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "125 mm",
+      "material": "PPR"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000028",
+    "code": "VD40BL27",
+    "name": "Vanne à boisseau PVC",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "40 mm",
+      "material": "laiton"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000029",
+    "code": "CL100S6VE28",
+    "name": "Câble souple H05V-F",
+    "attributes": {
+      "color": "vert",
+      "length": "100 m",
+      "section": "6 mm²",
+      "material": "cuivre"
+    },
+    "brand": "BatiPlus",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000030",
+    "code": "GD20L50GR29",
+    "name": "Chemins de câbles",
+    "attributes": {
+      "color": "gris",
+      "diameter": "20 mm",
+      "length": "50 m",
+      "material": "PE"
+    },
+    "brand": "TechnoFix",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000031",
+    "code": "JNO30",
+    "name": "Joint caoutchouc",
+    "attributes": {
+      "color": "noir",
+      "material": "silicone"
+    },
+    "brand": "BatiPlus",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000032",
+    "code": "SW3NO31",
+    "name": "Poste à souder MIG",
+    "attributes": {
+      "color": "noir",
+      "power": "3 kW"
+    },
+    "brand": "ElecMax",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000033",
+    "code": "TD160L4GR32",
+    "name": "Tube PVC évacuation",
+    "attributes": {
+      "color": "gris",
+      "diameter": "160 mm",
+      "length": "4 m",
+      "material": "PVC"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000034",
+    "code": "TPD32L2GR33",
+    "name": "Tube PER",
+    "attributes": {
+      "color": "gris",
+      "diameter": "32 mm",
+      "length": "2 m",
+      "material": "PEHD"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000035",
+    "code": "RD63GR34",
+    "name": "Té PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "63 mm",
+      "material": "PVC"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000036",
+    "code": "VD50CH35",
+    "name": "Vanne d'arrêt laiton",
+    "attributes": {
+      "color": "chromé",
+      "diameter": "50 mm",
+      "material": "PVC"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000037",
+    "code": "CL100S2.5VE36",
+    "name": "Câble rigide 3G",
+    "attributes": {
+      "color": "vert",
+      "length": "100 m",
+      "section": "2.5 mm²",
+      "material": "cuivre"
+    },
+    "brand": "TechnoFix",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000038",
+    "code": "GD40L25BL37",
+    "name": "Gaine ICTA",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "40 mm",
+      "length": "25 m",
+      "material": "PVC"
+    },
+    "brand": "BatiPlus",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000039",
+    "code": "JGR38",
+    "name": "Joint caoutchouc",
+    "attributes": {
+      "color": "gris",
+      "material": "silicone"
+    },
+    "brand": "AquaLine",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000040",
+    "code": "SW3RO39",
+    "name": "Poste à souder MIG",
+    "attributes": {
+      "color": "rouge",
+      "power": "3 kW"
+    },
+    "brand": "PlumboPro",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000041",
+    "code": "TD125L6GR40",
+    "name": "Tube PVC évacuation",
+    "attributes": {
+      "color": "gris",
+      "diameter": "125 mm",
+      "length": "6 m",
+      "material": "PVC"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000042",
+    "code": "TPD20L6BL41",
+    "name": "Tube PEHD assainissement",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "20 mm",
+      "length": "6 m",
+      "material": "PER"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000043",
+    "code": "RD80GR42",
+    "name": "Coude PVC 90°",
+    "attributes": {
+      "color": "gris",
+      "diameter": "80 mm",
+      "material": "PPR"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000044",
+    "code": "VD20CH43",
+    "name": "Vanne à papillon PVC",
+    "attributes": {
+      "color": "chromé",
+      "diameter": "20 mm",
+      "material": "PVC"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000045",
+    "code": "CL100S4VE44",
+    "name": "Câble rigide 3G",
+    "attributes": {
+      "color": "vert",
+      "length": "100 m",
+      "section": "4 mm²",
+      "material": "cuivre"
+    },
+    "brand": "AquaLine",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000046",
+    "code": "GD32L100GR45",
+    "name": "Goulotte PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "32 mm",
+      "length": "100 m",
+      "material": "PVC"
+    },
+    "brand": "AquaLine",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000047",
+    "code": "JGR46",
+    "name": "Ruban étanche",
+    "attributes": {
+      "color": "gris",
+      "material": "caoutchouc"
+    },
+    "brand": "AquaLine",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000048",
+    "code": "SW120RO47",
+    "name": "Poste à souder",
+    "attributes": {
+      "color": "rouge",
+      "power": "120 W"
+    },
+    "brand": "Somaterial",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000049",
+    "code": "TD50L6BL48",
+    "name": "Tube PVC drainage",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "50 mm",
+      "length": "6 m",
+      "material": "PVC"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000050",
+    "code": "TPD16L2GR49",
+    "name": "Tube PPR pression",
+    "attributes": {
+      "color": "gris",
+      "diameter": "16 mm",
+      "length": "2 m",
+      "material": "PER"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000051",
+    "code": "RD63GR50",
+    "name": "Réduction PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "63 mm",
+      "material": "PVC"
+    },
+    "brand": "PlumboPro",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000052",
+    "code": "VD25GR51",
+    "name": "Robinet à flotteur",
+    "attributes": {
+      "color": "gris",
+      "diameter": "25 mm",
+      "material": "laiton"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000053",
+    "code": "CL25S1.5NO52",
+    "name": "Câble souple H05V-F",
+    "attributes": {
+      "color": "noir",
+      "length": "25 m",
+      "section": "1.5 mm²",
+      "material": "cuivre"
+    },
+    "brand": "BatiPlus",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000054",
+    "code": "GD32L25NO53",
+    "name": "Chemins de câbles",
+    "attributes": {
+      "color": "noir",
+      "diameter": "32 mm",
+      "length": "25 m",
+      "material": "PVC"
+    },
+    "brand": "AquaLine",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000055",
+    "code": "JGR54",
+    "name": "Joint caoutchouc",
+    "attributes": {
+      "color": "gris",
+      "material": "caoutchouc"
+    },
+    "brand": "BatiPlus",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000056",
+    "code": "SW400BL55",
+    "name": "Buse de rechange",
+    "attributes": {
+      "color": "bleu",
+      "power": "400 W"
+    },
+    "brand": "TechnoFix",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000057",
+    "code": "TD40L2BL56",
+    "name": "Tube PVC drainage",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "40 mm",
+      "length": "2 m",
+      "material": "PVC"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000058",
+    "code": "TPD63L6BL57",
+    "name": "Tube PEHD assainissement",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "63 mm",
+      "length": "6 m",
+      "material": "PER"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000059",
+    "code": "RD80GR58",
+    "name": "Té PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "80 mm",
+      "material": "PVC"
+    },
+    "brand": "PlumboPro",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000060",
+    "code": "VD20CH59",
+    "name": "Vanne d'arrêt laiton",
+    "attributes": {
+      "color": "chromé",
+      "diameter": "20 mm",
+      "material": "laiton"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000061",
+    "code": "CL25S1.5BL60",
+    "name": "Câble souple H05V-F",
+    "attributes": {
+      "color": "bleu",
+      "length": "25 m",
+      "section": "1.5 mm²",
+      "material": "cuivre"
+    },
+    "brand": "AquaLine",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000062",
+    "code": "GD40L100BL61",
+    "name": "Goulotte PVC",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "40 mm",
+      "length": "100 m",
+      "material": "PE"
+    },
+    "brand": "BatiPlus",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000063",
+    "code": "JBL62",
+    "name": "Ruban étanche",
+    "attributes": {
+      "color": "blanc",
+      "material": "silicone"
+    },
+    "brand": "BatiPlus",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000064",
+    "code": "SW400NO63",
+    "name": "Chalumeau gaz",
+    "attributes": {
+      "color": "noir",
+      "power": "400 W"
+    },
+    "brand": "TechnoFix",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000065",
+    "code": "TD110L4GR64",
+    "name": "Tube PVC évacuation",
+    "attributes": {
+      "color": "gris",
+      "diameter": "110 mm",
+      "length": "4 m",
+      "material": "PVC"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000066",
+    "code": "TPD32L4BL65",
+    "name": "Tube PPR pression",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "32 mm",
+      "length": "4 m",
+      "material": "PEHD"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000067",
+    "code": "RD100GR66",
+    "name": "Coude PVC 90°",
+    "attributes": {
+      "color": "gris",
+      "diameter": "100 mm",
+      "material": "PPR"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000068",
+    "code": "VD50GR67",
+    "name": "Vanne à boisseau PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "50 mm",
+      "material": "laiton"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000069",
+    "code": "CL25S6RO68",
+    "name": "Câble rigide 3G",
+    "attributes": {
+      "color": "rouge",
+      "length": "25 m",
+      "section": "6 mm²",
+      "material": "cuivre"
+    },
+    "brand": "AquaLine",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000070",
+    "code": "GD40L100GR69",
+    "name": "Gaine ICTA",
+    "attributes": {
+      "color": "gris",
+      "diameter": "40 mm",
+      "length": "100 m",
+      "material": "PE"
+    },
+    "brand": "PlumboPro",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000071",
+    "code": "JNO70",
+    "name": "Ruban étanche",
+    "attributes": {
+      "color": "noir",
+      "material": "caoutchouc"
+    },
+    "brand": "ElecMax",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000072",
+    "code": "SW120RO71",
+    "name": "Poste à souder",
+    "attributes": {
+      "color": "rouge",
+      "power": "120 W"
+    },
+    "brand": "BatiPlus",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000073",
+    "code": "TD63L4GR72",
+    "name": "Tube PVC évacuation",
+    "attributes": {
+      "color": "gris",
+      "diameter": "63 mm",
+      "length": "4 m",
+      "material": "PVC"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000074",
+    "code": "TPD25L2BL73",
+    "name": "Tube PPR pression",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "25 mm",
+      "length": "2 m",
+      "material": "PER"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000075",
+    "code": "RD100GR74",
+    "name": "Coude PVC 90°",
+    "attributes": {
+      "color": "gris",
+      "diameter": "100 mm",
+      "material": "PPR"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000076",
+    "code": "VD40GR75",
+    "name": "Vanne d'arrêt laiton",
+    "attributes": {
+      "color": "gris",
+      "diameter": "40 mm",
+      "material": "laiton"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000077",
+    "code": "CL100S6JA76",
+    "name": "Câble rigide 3G",
+    "attributes": {
+      "color": "jaune",
+      "length": "100 m",
+      "section": "6 mm²",
+      "material": "cuivre"
+    },
+    "brand": "TechnoFix",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000078",
+    "code": "GD32L25BL77",
+    "name": "Chemins de câbles",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "32 mm",
+      "length": "25 m",
+      "material": "PVC"
+    },
+    "brand": "BatiPlus",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000079",
+    "code": "JNO78",
+    "name": "Ruban étanche",
+    "attributes": {
+      "color": "noir",
+      "material": "caoutchouc"
+    },
+    "brand": "AquaLine",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000080",
+    "code": "SW400NO79",
+    "name": "Buse de rechange",
+    "attributes": {
+      "color": "noir",
+      "power": "400 W"
+    },
+    "brand": "BatiPlus",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000081",
+    "code": "TD110L2BL80",
+    "name": "Tube PVC évacuation",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "110 mm",
+      "length": "2 m",
+      "material": "PVC"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000082",
+    "code": "TPD20L2NO81",
+    "name": "Tube PPR pression",
+    "attributes": {
+      "color": "noir",
+      "diameter": "20 mm",
+      "length": "2 m",
+      "material": "PEHD"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000083",
+    "code": "RD125GR82",
+    "name": "Coude PVC 90°",
+    "attributes": {
+      "color": "gris",
+      "diameter": "125 mm",
+      "material": "PPR"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000084",
+    "code": "VD63GR83",
+    "name": "Vanne à papillon PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "63 mm",
+      "material": "PVC"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000085",
+    "code": "CL50S4JA84",
+    "name": "Câble souple H05V-F",
+    "attributes": {
+      "color": "jaune",
+      "length": "50 m",
+      "section": "4 mm²",
+      "material": "cuivre"
+    },
+    "brand": "BatiPlus",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000086",
+    "code": "GD20L25NO85",
+    "name": "Gaine TPC",
+    "attributes": {
+      "color": "noir",
+      "diameter": "20 mm",
+      "length": "25 m",
+      "material": "PE"
+    },
+    "brand": "Somaterial",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000087",
+    "code": "JNO86",
+    "name": "Joint caoutchouc",
+    "attributes": {
+      "color": "noir",
+      "material": "PVC"
+    },
+    "brand": "Somaterial",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000088",
+    "code": "SW1.5RO87",
+    "name": "Poste à souder MIG",
+    "attributes": {
+      "color": "rouge",
+      "power": "1.5 kW"
+    },
+    "brand": "TechnoFix",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000089",
+    "code": "TD50L4BL88",
+    "name": "Tube PVC drainage",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "50 mm",
+      "length": "4 m",
+      "material": "PVC"
+    },
+    "brand": "PlumboPro",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000090",
+    "code": "TPD16L2GR89",
+    "name": "Tube PPR pression",
+    "attributes": {
+      "color": "gris",
+      "diameter": "16 mm",
+      "length": "2 m",
+      "material": "PER"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000091",
+    "code": "RD63BL90",
+    "name": "Té PVC",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "63 mm",
+      "material": "PPR"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000092",
+    "code": "VD110GR91",
+    "name": "Vanne à papillon PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "110 mm",
+      "material": "laiton"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000093",
+    "code": "CL100S6GR92",
+    "name": "Câble souple H05V-F",
+    "attributes": {
+      "color": "gris",
+      "length": "100 m",
+      "section": "6 mm²",
+      "material": "cuivre"
+    },
+    "brand": "BatiPlus",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000094",
+    "code": "GD32L50NO93",
+    "name": "Gaine TPC",
+    "attributes": {
+      "color": "noir",
+      "diameter": "32 mm",
+      "length": "50 m",
+      "material": "PE"
+    },
+    "brand": "PlumboPro",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000095",
+    "code": "JBL94",
+    "name": "Joint caoutchouc",
+    "attributes": {
+      "color": "blanc",
+      "material": "caoutchouc"
+    },
+    "brand": "TechnoFix",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000096",
+    "code": "SW400NO95",
+    "name": "Chalumeau gaz",
+    "attributes": {
+      "color": "noir",
+      "power": "400 W"
+    },
+    "brand": "AquaLine",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000097",
+    "code": "TD32L2GR96",
+    "name": "Tube PVC évacuation",
+    "attributes": {
+      "color": "gris",
+      "diameter": "32 mm",
+      "length": "2 m",
+      "material": "PVC"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000098",
+    "code": "TPD50L6BL97",
+    "name": "Tube PPR pression",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "50 mm",
+      "length": "6 m",
+      "material": "PEHD"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000099",
+    "code": "RD80GR98",
+    "name": "Té PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "80 mm",
+      "material": "PPR"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000100",
+    "code": "VD63GR99",
+    "name": "Vanne à papillon PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "63 mm",
+      "material": "PVC"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000101",
+    "code": "CL100S4RO100",
+    "name": "Câble souple H05V-F",
+    "attributes": {
+      "color": "rouge",
+      "length": "100 m",
+      "section": "4 mm²",
+      "material": "cuivre"
+    },
+    "brand": "ElecMax",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000102",
+    "code": "GD32L50BL101",
+    "name": "Chemins de câbles",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "32 mm",
+      "length": "50 m",
+      "material": "PE"
+    },
+    "brand": "TechnoFix",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000103",
+    "code": "JGR102",
+    "name": "Joint caoutchouc",
+    "attributes": {
+      "color": "gris",
+      "material": "caoutchouc"
+    },
+    "brand": "AquaLine",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000104",
+    "code": "SW1.5RO103",
+    "name": "Chalumeau gaz",
+    "attributes": {
+      "color": "rouge",
+      "power": "1.5 kW"
+    },
+    "brand": "BatiPlus",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000105",
+    "code": "TD40L4OR104",
+    "name": "Tube PVC assainissement",
+    "attributes": {
+      "color": "orange",
+      "diameter": "40 mm",
+      "length": "4 m",
+      "material": "PVC"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000106",
+    "code": "TPD25L6GR105",
+    "name": "Tube PER",
+    "attributes": {
+      "color": "gris",
+      "diameter": "25 mm",
+      "length": "6 m",
+      "material": "PER"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000107",
+    "code": "RD110BL106",
+    "name": "Raccord à bague PVC",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "110 mm",
+      "material": "PVC"
+    },
+    "brand": "PlumboPro",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000108",
+    "code": "VD32BL107",
+    "name": "Vanne à papillon PVC",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "32 mm",
+      "material": "laiton"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000109",
+    "code": "CL50S1.5BL108",
+    "name": "Câble rigide H07V-U",
+    "attributes": {
+      "color": "bleu",
+      "length": "50 m",
+      "section": "1.5 mm²",
+      "material": "cuivre"
+    },
+    "brand": "ElecMax",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000110",
+    "code": "GD16L100GR109",
+    "name": "Gaine ICTA",
+    "attributes": {
+      "color": "gris",
+      "diameter": "16 mm",
+      "length": "100 m",
+      "material": "PE"
+    },
+    "brand": "TechnoFix",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000111",
+    "code": "JNO110",
+    "name": "Mastic sanitaire",
+    "attributes": {
+      "color": "noir",
+      "material": "PVC"
+    },
+    "brand": "PlumboPro",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000112",
+    "code": "SW120BL111",
+    "name": "Poste à souder",
+    "attributes": {
+      "color": "bleu",
+      "power": "120 W"
+    },
+    "brand": "ElecMax",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000113",
+    "code": "TD200L4GR112",
+    "name": "Tube PVC évacuation",
+    "attributes": {
+      "color": "gris",
+      "diameter": "200 mm",
+      "length": "4 m",
+      "material": "PVC"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000114",
+    "code": "TPD25L4GR113",
+    "name": "Tube PER",
+    "attributes": {
+      "color": "gris",
+      "diameter": "25 mm",
+      "length": "4 m",
+      "material": "PER"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000115",
+    "code": "RD32BL114",
+    "name": "Raccord à bague PVC",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "32 mm",
+      "material": "PVC"
+    },
+    "brand": "PlumboPro",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000116",
+    "code": "VD63CH115",
+    "name": "Vanne d'arrêt laiton",
+    "attributes": {
+      "color": "chromé",
+      "diameter": "63 mm",
+      "material": "laiton"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000117",
+    "code": "CL50S1.5GR116",
+    "name": "Câble souple H05V-F",
+    "attributes": {
+      "color": "gris",
+      "length": "50 m",
+      "section": "1.5 mm²",
+      "material": "cuivre"
+    },
+    "brand": "AquaLine",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000118",
+    "code": "GD32L100NO117",
+    "name": "Chemins de câbles",
+    "attributes": {
+      "color": "noir",
+      "diameter": "32 mm",
+      "length": "100 m",
+      "material": "PVC"
+    },
+    "brand": "ElecMax",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000119",
+    "code": "JGR118",
+    "name": "Colle PVC",
+    "attributes": {
+      "color": "gris",
+      "material": "PVC"
+    },
+    "brand": "BatiPlus",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000120",
+    "code": "SW3BL119",
+    "name": "Chalumeau gaz",
+    "attributes": {
+      "color": "bleu",
+      "power": "3 kW"
+    },
+    "brand": "AquaLine",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000121",
+    "code": "TD160L2GR120",
+    "name": "Tube PVC assainissement",
+    "attributes": {
+      "color": "gris",
+      "diameter": "160 mm",
+      "length": "2 m",
+      "material": "PVC"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000122",
+    "code": "TPD63L6NO121",
+    "name": "Tube PPR pression",
+    "attributes": {
+      "color": "noir",
+      "diameter": "63 mm",
+      "length": "6 m",
+      "material": "PER"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000123",
+    "code": "RD63BL122",
+    "name": "Manchon PVC",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "63 mm",
+      "material": "PVC"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000124",
+    "code": "VD25GR123",
+    "name": "Vanne à boisseau PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "25 mm",
+      "material": "laiton"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000125",
+    "code": "CL100S6GR124",
+    "name": "Câble souple 5G",
+    "attributes": {
+      "color": "gris",
+      "length": "100 m",
+      "section": "6 mm²",
+      "material": "cuivre"
+    },
+    "brand": "Somaterial",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000126",
+    "code": "GD40L100GR125",
+    "name": "Chemins de câbles",
+    "attributes": {
+      "color": "gris",
+      "diameter": "40 mm",
+      "length": "100 m",
+      "material": "PVC"
+    },
+    "brand": "BatiPlus",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000127",
+    "code": "JBL126",
+    "name": "Joint caoutchouc",
+    "attributes": {
+      "color": "blanc",
+      "material": "caoutchouc"
+    },
+    "brand": "Somaterial",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000128",
+    "code": "SW400BL127",
+    "name": "Poste à souder MIG",
+    "attributes": {
+      "color": "bleu",
+      "power": "400 W"
+    },
+    "brand": "PlumboPro",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000129",
+    "code": "TD63L6OR128",
+    "name": "Tube PVC évacuation",
+    "attributes": {
+      "color": "orange",
+      "diameter": "63 mm",
+      "length": "6 m",
+      "material": "PVC"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000130",
+    "code": "TPD63L6BL129",
+    "name": "Tube PPR pression",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "63 mm",
+      "length": "6 m",
+      "material": "PPR"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000131",
+    "code": "RD32GR130",
+    "name": "Raccord à bague PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "32 mm",
+      "material": "PVC"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000132",
+    "code": "VD25GR131",
+    "name": "Vanne à boisseau PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "25 mm",
+      "material": "laiton"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000133",
+    "code": "CL100S2.5BL132",
+    "name": "Câble rigide H07V-U",
+    "attributes": {
+      "color": "bleu",
+      "length": "100 m",
+      "section": "2.5 mm²",
+      "material": "cuivre"
+    },
+    "brand": "TechnoFix",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000134",
+    "code": "GD16L50GR133",
+    "name": "Chemins de câbles",
+    "attributes": {
+      "color": "gris",
+      "diameter": "16 mm",
+      "length": "50 m",
+      "material": "PE"
+    },
+    "brand": "Somaterial",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000135",
+    "code": "JBL134",
+    "name": "Ruban étanche",
+    "attributes": {
+      "color": "blanc",
+      "material": "silicone"
+    },
+    "brand": "TechnoFix",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000136",
+    "code": "SW1.5NO135",
+    "name": "Poste à souder MIG",
+    "attributes": {
+      "color": "noir",
+      "power": "1.5 kW"
+    },
+    "brand": "Somaterial",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000137",
+    "code": "TD100L2BL136",
+    "name": "Tube PVC évacuation",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "100 mm",
+      "length": "2 m",
+      "material": "PVC"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000138",
+    "code": "TPD63L6BL137",
+    "name": "Tube PEHD assainissement",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "63 mm",
+      "length": "6 m",
+      "material": "PER"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000139",
+    "code": "RD63BL138",
+    "name": "Raccord à bague PVC",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "63 mm",
+      "material": "PVC"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000140",
+    "code": "VD25BL139",
+    "name": "Vanne à papillon PVC",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "25 mm",
+      "material": "PVC"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000141",
+    "code": "CL50S4BL140",
+    "name": "Câble souple 5G",
+    "attributes": {
+      "color": "bleu",
+      "length": "50 m",
+      "section": "4 mm²",
+      "material": "cuivre"
+    },
+    "brand": "TechnoFix",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000142",
+    "code": "GD20L25NO141",
+    "name": "Gaine ICTA",
+    "attributes": {
+      "color": "noir",
+      "diameter": "20 mm",
+      "length": "25 m",
+      "material": "PE"
+    },
+    "brand": "BatiPlus",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000143",
+    "code": "JNO142",
+    "name": "Colle PVC",
+    "attributes": {
+      "color": "noir",
+      "material": "PVC"
+    },
+    "brand": "ElecMax",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000144",
+    "code": "SW3RO143",
+    "name": "Poste à souder",
+    "attributes": {
+      "color": "rouge",
+      "power": "3 kW"
+    },
+    "brand": "PlumboPro",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000145",
+    "code": "TD160L2GR144",
+    "name": "Tube PVC assainissement",
+    "attributes": {
+      "color": "gris",
+      "diameter": "160 mm",
+      "length": "2 m",
+      "material": "PVC"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000146",
+    "code": "TPD50L4BL145",
+    "name": "Tube PER",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "50 mm",
+      "length": "4 m",
+      "material": "PER"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000147",
+    "code": "RD110GR146",
+    "name": "Coude PVC 90°",
+    "attributes": {
+      "color": "gris",
+      "diameter": "110 mm",
+      "material": "PVC"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000148",
+    "code": "VD32GR147",
+    "name": "Vanne d'arrêt laiton",
+    "attributes": {
+      "color": "gris",
+      "diameter": "32 mm",
+      "material": "PVC"
+    },
+    "brand": "PlumboPro",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000149",
+    "code": "CL100S2.5GR148",
+    "name": "Câble souple 5G",
+    "attributes": {
+      "color": "gris",
+      "length": "100 m",
+      "section": "2.5 mm²",
+      "material": "cuivre"
+    },
+    "brand": "TechnoFix",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000150",
+    "code": "GD20L50NO149",
+    "name": "Gaine ICTA",
+    "attributes": {
+      "color": "noir",
+      "diameter": "20 mm",
+      "length": "50 m",
+      "material": "PE"
+    },
+    "brand": "BatiPlus",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000151",
+    "code": "JGR150",
+    "name": "Joint caoutchouc",
+    "attributes": {
+      "color": "gris",
+      "material": "silicone"
+    },
+    "brand": "Somaterial",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000152",
+    "code": "SW1.5NO151",
+    "name": "Buse de rechange",
+    "attributes": {
+      "color": "noir",
+      "power": "1.5 kW"
+    },
+    "brand": "TechnoFix",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000153",
+    "code": "TD40L4OR152",
+    "name": "Tube PVC assainissement",
+    "attributes": {
+      "color": "orange",
+      "diameter": "40 mm",
+      "length": "4 m",
+      "material": "PVC"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000154",
+    "code": "TPD40L4BL153",
+    "name": "Tube PPR pression",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "40 mm",
+      "length": "4 m",
+      "material": "PPR"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000155",
+    "code": "RD80GR154",
+    "name": "Réduction PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "80 mm",
+      "material": "PVC"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000156",
+    "code": "VD32BL155",
+    "name": "Vanne à papillon PVC",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "32 mm",
+      "material": "laiton"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000157",
+    "code": "CL50S4JA156",
+    "name": "Câble souple H05V-F",
+    "attributes": {
+      "color": "jaune",
+      "length": "50 m",
+      "section": "4 mm²",
+      "material": "cuivre"
+    },
+    "brand": "PlumboPro",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000158",
+    "code": "GD20L25NO157",
+    "name": "Chemins de câbles",
+    "attributes": {
+      "color": "noir",
+      "diameter": "20 mm",
+      "length": "25 m",
+      "material": "PVC"
+    },
+    "brand": "Somaterial",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000159",
+    "code": "JNO158",
+    "name": "Joint plat fibre",
+    "attributes": {
+      "color": "noir",
+      "material": "silicone"
+    },
+    "brand": "TechnoFix",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000160",
+    "code": "SW1.5RO159",
+    "name": "Buse de rechange",
+    "attributes": {
+      "color": "rouge",
+      "power": "1.5 kW"
+    },
+    "brand": "Somaterial",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000161",
+    "code": "TD32L2OR160",
+    "name": "Tube PVC évacuation",
+    "attributes": {
+      "color": "orange",
+      "diameter": "32 mm",
+      "length": "2 m",
+      "material": "PVC"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000162",
+    "code": "TPD25L6BL161",
+    "name": "Tube PEHD assainissement",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "25 mm",
+      "length": "6 m",
+      "material": "PER"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000163",
+    "code": "RD100GR162",
+    "name": "Té PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "100 mm",
+      "material": "PVC"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000164",
+    "code": "VD25CH163",
+    "name": "Vanne à papillon PVC",
+    "attributes": {
+      "color": "chromé",
+      "diameter": "25 mm",
+      "material": "laiton"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000165",
+    "code": "CL50S2.5VE164",
+    "name": "Câble souple 5G",
+    "attributes": {
+      "color": "vert",
+      "length": "50 m",
+      "section": "2.5 mm²",
+      "material": "cuivre"
+    },
+    "brand": "ElecMax",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000166",
+    "code": "GD16L50GR165",
+    "name": "Goulotte PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "16 mm",
+      "length": "50 m",
+      "material": "PVC"
+    },
+    "brand": "AquaLine",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000167",
+    "code": "JBL166",
+    "name": "Joint plat fibre",
+    "attributes": {
+      "color": "blanc",
+      "material": "silicone"
+    },
+    "brand": "TechnoFix",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000168",
+    "code": "SW400RO167",
+    "name": "Poste à souder MIG",
+    "attributes": {
+      "color": "rouge",
+      "power": "400 W"
+    },
+    "brand": "BatiPlus",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000169",
+    "code": "TD40L2OR168",
+    "name": "Tube PVC drainage",
+    "attributes": {
+      "color": "orange",
+      "diameter": "40 mm",
+      "length": "2 m",
+      "material": "PVC"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000170",
+    "code": "TPD32L2NO169",
+    "name": "Tube PER",
+    "attributes": {
+      "color": "noir",
+      "diameter": "32 mm",
+      "length": "2 m",
+      "material": "PER"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000171",
+    "code": "RD80BL170",
+    "name": "Réduction PVC",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "80 mm",
+      "material": "PVC"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000172",
+    "code": "VD40GR171",
+    "name": "Robinet à flotteur",
+    "attributes": {
+      "color": "gris",
+      "diameter": "40 mm",
+      "material": "laiton"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000173",
+    "code": "CL100S2.5RO172",
+    "name": "Câble rigide H07V-U",
+    "attributes": {
+      "color": "rouge",
+      "length": "100 m",
+      "section": "2.5 mm²",
+      "material": "cuivre"
+    },
+    "brand": "TechnoFix",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000174",
+    "code": "GD20L100NO173",
+    "name": "Gaine TPC",
+    "attributes": {
+      "color": "noir",
+      "diameter": "20 mm",
+      "length": "100 m",
+      "material": "PE"
+    },
+    "brand": "ElecMax",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000175",
+    "code": "JBL174",
+    "name": "Colle PVC",
+    "attributes": {
+      "color": "blanc",
+      "material": "PVC"
+    },
+    "brand": "PlumboPro",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000176",
+    "code": "SW1.5BL175",
+    "name": "Poste à souder MIG",
+    "attributes": {
+      "color": "bleu",
+      "power": "1.5 kW"
+    },
+    "brand": "AquaLine",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000177",
+    "code": "TD200L6GR176",
+    "name": "Tube PVC évacuation",
+    "attributes": {
+      "color": "gris",
+      "diameter": "200 mm",
+      "length": "6 m",
+      "material": "PVC"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000178",
+    "code": "TPD50L2GR177",
+    "name": "Tube PPR pression",
+    "attributes": {
+      "color": "gris",
+      "diameter": "50 mm",
+      "length": "2 m",
+      "material": "PPR"
+    },
+    "brand": "BatiPlus",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000179",
+    "code": "RD80BL178",
+    "name": "Raccord à bague PVC",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "80 mm",
+      "material": "PVC"
+    },
+    "brand": "PlumboPro",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000180",
+    "code": "VD63BL179",
+    "name": "Vanne à papillon PVC",
+    "attributes": {
+      "color": "bleu",
+      "diameter": "63 mm",
+      "material": "laiton"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000181",
+    "code": "CL100S6RO180",
+    "name": "Câble rigide 3G",
+    "attributes": {
+      "color": "rouge",
+      "length": "100 m",
+      "section": "6 mm²",
+      "material": "cuivre"
+    },
+    "brand": "ElecMax",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000182",
+    "code": "GD25L100GR181",
+    "name": "Goulotte PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "25 mm",
+      "length": "100 m",
+      "material": "PVC"
+    },
+    "brand": "Somaterial",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000183",
+    "code": "JNO182",
+    "name": "Colle PVC",
+    "attributes": {
+      "color": "noir",
+      "material": "caoutchouc"
+    },
+    "brand": "BatiPlus",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000184",
+    "code": "SW1.5BL183",
+    "name": "Poste à souder",
+    "attributes": {
+      "color": "bleu",
+      "power": "1.5 kW"
+    },
+    "brand": "PlumboPro",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000185",
+    "code": "TD125L6GR184",
+    "name": "Tube PVC assainissement",
+    "attributes": {
+      "color": "gris",
+      "diameter": "125 mm",
+      "length": "6 m",
+      "material": "PVC"
+    },
+    "brand": "PlumboPro",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000186",
+    "code": "TPD40L2GR185",
+    "name": "Tube PPR pression",
+    "attributes": {
+      "color": "gris",
+      "diameter": "40 mm",
+      "length": "2 m",
+      "material": "PER"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000187",
+    "code": "RD125GR186",
+    "name": "Raccord à bague PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "125 mm",
+      "material": "PPR"
+    },
+    "brand": "TechnoFix",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000188",
+    "code": "VD20CH187",
+    "name": "Vanne à papillon PVC",
+    "attributes": {
+      "color": "chromé",
+      "diameter": "20 mm",
+      "material": "laiton"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000189",
+    "code": "CL25S6RO188",
+    "name": "Câble rigide 3G",
+    "attributes": {
+      "color": "rouge",
+      "length": "25 m",
+      "section": "6 mm²",
+      "material": "cuivre"
+    },
+    "brand": "AquaLine",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000190",
+    "code": "GD25L100NO189",
+    "name": "Chemins de câbles",
+    "attributes": {
+      "color": "noir",
+      "diameter": "25 mm",
+      "length": "100 m",
+      "material": "PE"
+    },
+    "brand": "Somaterial",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000191",
+    "code": "JBL190",
+    "name": "Colle PVC",
+    "attributes": {
+      "color": "blanc",
+      "material": "PVC"
+    },
+    "brand": "TechnoFix",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000192",
+    "code": "SW1.5RO191",
+    "name": "Buse de rechange",
+    "attributes": {
+      "color": "rouge",
+      "power": "1.5 kW"
+    },
+    "brand": "BatiPlus",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  },
+  {
+    "id": "P000193",
+    "code": "TD100L2BL192",
+    "name": "Tube PVC assainissement",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "100 mm",
+      "length": "2 m",
+      "material": "PVC"
+    },
+    "brand": "AquaLine",
+    "category": "Plomberie",
+    "subcategory": "Évacuation"
+  },
+  {
+    "id": "P000194",
+    "code": "TPD16L4GR193",
+    "name": "Tube PEHD assainissement",
+    "attributes": {
+      "color": "gris",
+      "diameter": "16 mm",
+      "length": "4 m",
+      "material": "PER"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Pression"
+  },
+  {
+    "id": "P000195",
+    "code": "RD125GR194",
+    "name": "Manchon PVC",
+    "attributes": {
+      "color": "gris",
+      "diameter": "125 mm",
+      "material": "PVC"
+    },
+    "brand": "ElecMax",
+    "category": "Plomberie",
+    "subcategory": "Raccords"
+  },
+  {
+    "id": "P000196",
+    "code": "VD40CH195",
+    "name": "Vanne d'arrêt laiton",
+    "attributes": {
+      "color": "chromé",
+      "diameter": "40 mm",
+      "material": "PVC"
+    },
+    "brand": "Somaterial",
+    "category": "Plomberie",
+    "subcategory": "Robinetterie"
+  },
+  {
+    "id": "P000197",
+    "code": "CL100S1.5GR196",
+    "name": "Câble rigide H07V-U",
+    "attributes": {
+      "color": "gris",
+      "length": "100 m",
+      "section": "1.5 mm²",
+      "material": "cuivre"
+    },
+    "brand": "Somaterial",
+    "category": "Électricité",
+    "subcategory": "Câbles"
+  },
+  {
+    "id": "P000198",
+    "code": "GD20L25BL197",
+    "name": "Gaine ICTA",
+    "attributes": {
+      "color": "blanc",
+      "diameter": "20 mm",
+      "length": "25 m",
+      "material": "PE"
+    },
+    "brand": "ElecMax",
+    "category": "Électricité",
+    "subcategory": "Gaines"
+  },
+  {
+    "id": "P000199",
+    "code": "JNO198",
+    "name": "Joint plat fibre",
+    "attributes": {
+      "color": "noir",
+      "material": "caoutchouc"
+    },
+    "brand": "Somaterial",
+    "category": "Matériaux",
+    "subcategory": "Étanchéité"
+  },
+  {
+    "id": "P000200",
+    "code": "SW3RO199",
+    "name": "Poste à souder MIG",
+    "attributes": {
+      "color": "rouge",
+      "power": "3 kW"
+    },
+    "brand": "ElecMax",
+    "category": "Outillage",
+    "subcategory": "Soudure"
+  }
+]

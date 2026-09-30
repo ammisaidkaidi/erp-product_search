@@ -44,8 +44,8 @@ describe("IR metrics (hand-verified)", () => {
     expect(ndcgAtK(gains, ["C", "A"], 10)).toBeCloseTo((15 + 7 / Math.log2(3)) / idcg, 5);
     // all three retrieved in ideal order => 1.0
     expect(ndcgAtK(gains, ["C", "A", "B"], 10)).toBeCloseTo(1.0, 5);
-    // reversed order of the top two
-    const dcg = 7 / Math.log2(3) + 15 / Math.log2(2);
+    // reversed order of the top two: A@1 (7/1), C@2 (15/log2(3))
+    const dcg = 7 / Math.log2(2) + 15 / Math.log2(3);
     expect(ndcgAtK(gains, ["A", "C"], 10)).toBeCloseTo(dcg / idcg, 5);
     // non-relevant entries in between
     expect(ndcgAtK(gains, ["X", "C"], 10)).toBeCloseTo(15 / Math.log2(2) / idcg, 5);

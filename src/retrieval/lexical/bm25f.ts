@@ -1,6 +1,4 @@
-import type {
-  Bm25Config,
-} from "../../config/schema.js";
+import type { Bm25Config } from "../../config/schema.js";
 import type { NormalizedQuery, ProductSearchDocument, RetrievalResult, SearchDocumentFields } from "../../core/types.js";
 import { analyzeCode, analyzeText, canonicalCode } from "../../analysis/analyzer.js";
 import type { SearchDocumentBuilder } from "../../document/builder.js";
@@ -19,28 +17,32 @@ import type { SearchDocumentBuilder } from "../../document/builder.js";
  *   - code prefix match ("110B45" vs "T110B45")
  *   - numeric attribute match ("110" matching "diamètre 110 mm")
  *
+ * Implementation: an inverted index (term -> doc -> per-field tf) so scoring
+ * visits only documents containing query terms — O(matching docs), not
+ * O(catalog). A code index answers exact/prefix code boosts without scans.
+ * (Measured before/after on 50k products: see docs/performance.md.)
+ *
  * The index is hydrated from product_search rows at startup and updated
  * incrementally by the indexer; it is NOT the source of truth.
  */
 
 export type FieldName = "code" | "name" | "attributes" | "brand" | "category";
 export const FIELD_NAMES: readonly FieldName[] = ["code", "name", "attributes", "brand", "category"];
+const FIELD_INDEX: Record<FieldName, number> = { code: 0, name: 1, attributes: 2, brand: 3, category: 4 };
 
-interface FieldPosting {
-  /** term -> term frequency in this field */
-  tf: Map<string, number>;
-  /** total number of terms (incl. variants) for length normalization */
-  length: number;
+/** per-term, per-document term frequencies in each field */
+interface PostingEntry {
+  tf: [number, number, number, number, number];
 }
 
-interface IndexedDoc {
+interface DocEntry {
   productId: string;
-  fields: Record<FieldName, FieldPosting>;
-  /** document-level term presence (for idf) */
-  terms: Set<string>;
-  /** numeric terms found in the attributes field (for numeric boost) */
-  attributeNumbers: Set<string>;
+  /** total terms per field, for length normalization */
+  lengths: [number, number, number, number, number];
+  /** every indexed term of this document (for deletion) */
+  terms: string[];
   canonicalCode: string;
+  index: number;
 }
 
 export interface Bm25SearchDebug {
@@ -52,11 +54,22 @@ export interface Bm25SearchDebug {
   numericBoost: number;
 }
 
+interface CandidateAccumulator {
+  bm25f: number;
+  exactCodeBoost: number;
+  codePrefixBoost: number;
+  numericBoost: number;
+}
+
 export class InMemoryBm25Index {
-  private docs = new Map<string, IndexedDoc>();
-  private df = new Map<string, number>();
-  private avgFieldLength: Record<FieldName, number> = { code: 0, name: 0, attributes: 0, brand: 0, category: 0 };
-  private statsDirty = false;
+  private docsArr: DocEntry[] = [];
+  private freeIndices: number[] = [];
+  private idToIndex = new Map<string, number>();
+  private postings = new Map<string, Map<number, PostingEntry>>();
+  private codeIndex = new Map<string, number>();
+  /** sum of field lengths / count of docs having the field (incremental averages) */
+  private fieldLengthSum = [0, 0, 0, 0, 0];
+  private fieldDocCount = [0, 0, 0, 0, 0];
   private config: Bm25Config;
   private readonly builder: SearchDocumentBuilder;
 
@@ -66,41 +79,40 @@ export class InMemoryBm25Index {
   }
 
   get documentCount(): number {
-    return this.docs.size;
+    return this.idToIndex.size;
   }
 
   upsert(doc: ProductSearchDocument): void {
     this.delete(doc.productId);
     const fields = this.builder.fields(doc);
-    const indexed: IndexedDoc = {
+    const index = this.freeIndices.pop() ?? this.docsArr.length;
+    const entry: DocEntry = {
       productId: doc.productId,
-      fields: this.emptyFields(),
-      terms: new Set(),
-      attributeNumbers: new Set(),
+      lengths: [0, 0, 0, 0, 0],
+      terms: [],
       canonicalCode: canonicalCode(doc.code),
+      index,
     };
+    this.docsArr[index] = entry;
+    this.idToIndex.set(doc.productId, index);
+    if (entry.canonicalCode.length > 0) this.codeIndex.set(entry.canonicalCode, index);
 
-    this.addField(indexed, "code", analyzeCode(fields.code));
-    this.addField(indexed, "name", this.analyzeFieldText(fields.name));
+    this.addField(entry, FIELD_INDEX.code, analyzeCode(fields.code));
+    this.addField(entry, FIELD_INDEX.name, this.analyzeFieldText(fields.name));
     // Attributes: analyze "label value" pairs (labels are searchable text).
     const attrText = Object.entries(fields.attributes)
       .map(([label, value]) => `${label} ${value}`)
       .join(" ");
-    const attrTerms = this.analyzeFieldText(attrText);
-    this.addField(indexed, "attributes", attrTerms);
-    for (const term of attrTerms) {
-      if (term.kind === "number" || term.kind === "dimension") {
-        indexed.attributeNumbers.add(term.term);
+    this.addField(entry, FIELD_INDEX.attributes, this.analyzeFieldText(attrText));
+    this.addField(entry, FIELD_INDEX.brand, this.analyzeFieldText(fields.brand));
+    this.addField(entry, FIELD_INDEX.category, this.analyzeFieldText(fields.category));
+
+    for (let f = 0; f < 5; f++) {
+      if (entry.lengths[f]! > 0) {
+        this.fieldLengthSum[f]! += entry.lengths[f]!;
+        this.fieldDocCount[f]! += 1;
       }
     }
-    this.addField(indexed, "brand", this.analyzeFieldText(fields.brand));
-    this.addField(indexed, "category", this.analyzeFieldText(fields.category));
-
-    this.docs.set(doc.productId, indexed);
-    for (const term of indexed.terms) {
-      this.df.set(term, (this.df.get(term) ?? 0) + 1);
-    }
-    this.statsDirty = true;
   }
 
   upsertMany(docs: Iterable<ProductSearchDocument>): void {
@@ -108,46 +120,117 @@ export class InMemoryBm25Index {
   }
 
   delete(productId: string): boolean {
-    const doc = this.docs.get(productId);
-    if (!doc) return false;
-    for (const term of doc.terms) {
-      const count = this.df.get(term);
-      if (count === undefined) continue;
-      if (count <= 1) this.df.delete(term);
-      else this.df.set(term, count - 1);
+    const index = this.idToIndex.get(productId);
+    if (index === undefined) return false;
+    const entry = this.docsArr[index]!;
+    for (const term of entry.terms) {
+      const posting = this.postings.get(term);
+      if (posting === undefined) continue;
+      posting.delete(index);
+      if (posting.size === 0) this.postings.delete(term);
     }
-    this.docs.delete(productId);
-    this.statsDirty = true;
+    if (entry.canonicalCode.length > 0) this.codeIndex.delete(entry.canonicalCode);
+    for (let f = 0; f < 5; f++) {
+      if (entry.lengths[f]! > 0) {
+        this.fieldLengthSum[f]! -= entry.lengths[f]!;
+        this.fieldDocCount[f]! -= 1;
+      }
+    }
+    this.idToIndex.delete(productId);
+    this.docsArr[index] = null as unknown as DocEntry;
+    this.freeIndices.push(index);
     return true;
   }
 
   clear(): void {
-    this.docs.clear();
-    this.df.clear();
-    this.statsDirty = true;
+    this.docsArr = [];
+    this.freeIndices = [];
+    this.idToIndex.clear();
+    this.postings.clear();
+    this.codeIndex.clear();
+    this.fieldLengthSum = [0, 0, 0, 0, 0];
+    this.fieldDocCount = [0, 0, 0, 0, 0];
   }
 
   /** Search with full per-document debug info. */
   searchDebug(query: NormalizedQuery, limit: number): Array<RetrievalResult & { debug: Bm25SearchDebug }> {
-    this.ensureStats();
     const queryTerms = this.queryTerms(query);
-    if (queryTerms.size === 0 && query.codes.length === 0) return [];
-    if (this.docs.size === 0) return [];
-
     const queryCodes = new Set<string>([
       ...query.codes.map((c) => canonicalCode(c)),
       ...query.tokens
         .filter((t) => t.length >= 4 && /[a-z]/.test(t) && /\d/.test(t))
         .map((t) => canonicalCode(t)),
     ]);
+    if (queryTerms.size === 0 && queryCodes.size === 0) return [];
+
+    const candidates = new Map<number, CandidateAccumulator>();
+    const touch = (docIndex: number): CandidateAccumulator => {
+      let acc = candidates.get(docIndex);
+      if (!acc) {
+        acc = { bm25f: 0, exactCodeBoost: 0, codePrefixBoost: 0, numericBoost: 0 };
+        candidates.set(docIndex, acc);
+      }
+      return acc;
+    };
+
+    // ---- BM25F scoring via the inverted index -----------------------------
+    const { k1, b, fieldWeights } = this.config;
+    const weights: number[] = [
+      fieldWeights.code,
+      fieldWeights.name,
+      fieldWeights.attributes,
+      fieldWeights.brand,
+      fieldWeights.category,
+    ];
+    const n = this.idToIndex.size;
+    for (const term of queryTerms) {
+      const posting = this.postings.get(term);
+      if (posting === undefined || posting.size === 0) continue;
+      const df = posting.size;
+      const idf = Math.log(1 + (n - df + 0.5) / (df + 0.5));
+      if (idf <= 0) continue;
+      const isNumericQueryTerm = /^\d+(?:\.\d+)?(x\d+(\.\d+)?)?$/.test(term);
+      for (const [docIndex, entry] of posting) {
+        const doc = this.docsArr[docIndex]!;
+        let weightedTf = 0;
+        for (let f = 0; f < 5; f++) {
+          const tf = entry.tf[f]!;
+          if (tf === 0) continue;
+          const avg = this.fieldDocCount[f]! > 0 ? this.fieldLengthSum[f]! / this.fieldDocCount[f]! : 0;
+          const lenNorm = avg > 0 ? 1 - b + b * (doc.lengths[f]! / avg) : 1;
+          weightedTf += weights[f]! * (tf / lenNorm);
+        }
+        if (weightedTf === 0) continue;
+        const acc = touch(docIndex);
+        acc.bm25f += idf * ((weightedTf * (k1 + 1)) / (weightedTf + k1));
+        // numeric attribute signal: query number matching an attributes-field number
+        if (isNumericQueryTerm && entry.tf[FIELD_INDEX.attributes]! > 0) {
+          acc.numericBoost += this.config.boosts.numericAttribute;
+        }
+      }
+    }
+
+    // ---- deterministic code boosts ----------------------------------------
+    for (const code of queryCodes) {
+      const exact = this.codeIndex.get(code);
+      if (exact !== undefined) {
+        touch(exact).exactCodeBoost = this.config.boosts.exactCode;
+        continue;
+      }
+      if (code.length < 4) continue;
+      // prefix in either direction; only scans when a code-shaped query exists
+      for (const [docCode, docIndex] of this.codeIndex) {
+        if (docCode !== code && (docCode.startsWith(code) || code.startsWith(docCode))) {
+          const acc = touch(docIndex);
+          if (acc.codePrefixBoost === 0) acc.codePrefixBoost = this.config.boosts.codePrefix;
+        }
+      }
+    }
 
     const results: Array<RetrievalResult & { debug: Bm25SearchDebug }> = [];
-    for (const doc of this.docs.values()) {
-      const bm25f = this.bm25fScore(doc, queryTerms);
-      const exactCodeBoost = this.exactCodeBoost(doc, queryCodes);
-      const codePrefixBoost = this.codePrefixBoost(doc, queryCodes);
-      const numericBoost = this.numericBoost(doc, queryTerms);
-      const score = bm25f + exactCodeBoost + codePrefixBoost + numericBoost;
+    for (const [docIndex, acc] of candidates) {
+      const doc = this.docsArr[docIndex]!;
+      const score = acc.bm25f + acc.exactCodeBoost + acc.codePrefixBoost + acc.numericBoost;
       // Include docs matched either lexically or via a deterministic product
       // signal (e.g. a code-prefix hit with no shared token: "T110" vs "T110B45").
       if (score <= 1e-9) continue;
@@ -158,14 +241,14 @@ export class InMemoryBm25Index {
         debug: {
           productId: doc.productId,
           score,
-          bm25fScore: bm25f,
-          exactCodeBoost,
-          codePrefixBoost,
-          numericBoost,
+          bm25fScore: acc.bm25f,
+          exactCodeBoost: acc.exactCodeBoost,
+          codePrefixBoost: acc.codePrefixBoost,
+          numericBoost: acc.numericBoost,
         },
       });
     }
-    results.sort((a, b) => b.score - a.score || (a.productId < b.productId ? -1 : 1));
+    results.sort((a, b2) => b2.score - a.score || (a.productId < b2.productId ? -1 : 1));
     return results.slice(0, limit);
   }
 
@@ -175,10 +258,9 @@ export class InMemoryBm25Index {
 
   /** Frequent terms for typo-correction vocabulary (bounded). */
   vocabulary(limit = 20_000): string[] {
-    this.ensureStats();
-    return [...this.df.entries()]
-      .filter(([term, df]) => df >= 2 && term.length >= 3 && /[a-zà-ÿ]/i.test(term))
-      .sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))
+    return [...this.postings.entries()]
+      .filter(([term, posting]) => posting.size >= 2 && term.length >= 3 && /[a-zà-ÿ]/i.test(term))
+      .sort((a, b) => b[1].size - a[1].size || (a[0] < b[0] ? -1 : 1))
       .slice(0, limit)
       .map(([term]) => term);
   }
@@ -186,8 +268,8 @@ export class InMemoryBm25Index {
   /** All canonical product codes (for exact-code detection in the normalizer). */
   codes(limit = 100_000): string[] {
     const out: string[] = [];
-    for (const doc of this.docs.values()) {
-      if (doc.canonicalCode.length > 0) out.push(doc.canonicalCode);
+    for (const code of this.codeIndex.keys()) {
+      out.push(code);
       if (out.length >= limit) break;
     }
     return out;
@@ -204,41 +286,22 @@ export class InMemoryBm25Index {
     return terms.filter((t) => t.kind !== "word" || !stops.has(t.term));
   }
 
-  private emptyFields(): Record<FieldName, FieldPosting> {
-    return {
-      code: { tf: new Map(), length: 0 },
-      name: { tf: new Map(), length: 0 },
-      attributes: { tf: new Map(), length: 0 },
-      brand: { tf: new Map(), length: 0 },
-      category: { tf: new Map(), length: 0 },
-    };
-  }
-
-  private addField(doc: IndexedDoc, field: FieldName, terms: ReturnType<typeof analyzeText>): void {
-    const posting = doc.fields[field];
+  private addField(doc: DocEntry, field: number, terms: ReturnType<typeof analyzeText>): void {
     for (const t of terms) {
-      const tf = t.isVariant ? 1 : (posting.tf.get(t.term) ?? 0) + 1;
-      posting.tf.set(t.term, tf);
-      posting.length += 1;
-      doc.terms.add(t.term);
-    }
-  }
-
-  /** Lazily recompute field-length averages; O(N) but amortized over batch upserts. */
-  private ensureStats(): void {
-    if (!this.statsDirty) return;
-    const totals: Record<FieldName, number> = { code: 0, name: 0, attributes: 0, brand: 0, category: 0 };
-    const counts: Record<FieldName, number> = { code: 0, name: 0, attributes: 0, brand: 0, category: 0 };
-    for (const doc of this.docs.values()) {
-      for (const field of FIELD_NAMES) {
-        totals[field] += doc.fields[field].length;
-        if (doc.fields[field].length > 0) counts[field] += 1;
+      let posting = this.postings.get(t.term);
+      if (!posting) {
+        posting = new Map();
+        this.postings.set(t.term, posting);
       }
+      let entry = posting.get(doc.index);
+      if (!entry) {
+        entry = { tf: [0, 0, 0, 0, 0] };
+        posting.set(doc.index, entry);
+        doc.terms.push(t.term);
+      }
+      entry.tf[field] = t.isVariant ? Math.max(1, entry.tf[field]!) : entry.tf[field]! + 1;
+      doc.lengths[field]! += 1;
     }
-    for (const field of FIELD_NAMES) {
-      this.avgFieldLength[field] = counts[field] > 0 ? totals[field] / counts[field] : 0;
-    }
-    this.statsDirty = false;
   }
 
   /** Unique query terms (post-normalization tokens, deduplicated). */
@@ -255,60 +318,5 @@ export class InMemoryBm25Index {
       }
     }
     return terms;
-  }
-
-  private idf(term: string): number {
-    const n = this.docs.size;
-    const df = this.df.get(term) ?? 0;
-    return Math.log(1 + (n - df + 0.5) / (df + 0.5));
-  }
-
-  private bm25fScore(doc: IndexedDoc, queryTerms: Set<string>): number {
-    const { k1, b, fieldWeights } = this.config;
-    let score = 0;
-    for (const term of queryTerms) {
-      let weightedTf = 0;
-      for (const field of FIELD_NAMES) {
-        const tf = doc.fields[field].tf.get(term);
-        if (tf === undefined) continue;
-        const weight = fieldWeights[field];
-        const avgLen = this.avgFieldLength[field];
-        const lenNorm = avgLen > 0 ? 1 - b + b * (doc.fields[field].length / avgLen) : 1;
-        weightedTf += weight * (tf / lenNorm);
-      }
-      if (weightedTf === 0) continue;
-      score += this.idf(term) * ((weightedTf * (k1 + 1)) / (weightedTf + k1));
-    }
-    return score;
-  }
-
-  private exactCodeBoost(doc: IndexedDoc, queryCodes: Set<string>): number {
-    if (doc.canonicalCode.length === 0 || queryCodes.size === 0) return 0;
-    for (const code of queryCodes) {
-      if (code === doc.canonicalCode) return this.config.boosts.exactCode;
-    }
-    return 0;
-  }
-
-  private codePrefixBoost(doc: IndexedDoc, queryCodes: Set<string>): number {
-    if (doc.canonicalCode.length === 0 || queryCodes.size === 0) return 0;
-    for (const code of queryCodes) {
-      if (code.length < 4) continue;
-      if (doc.canonicalCode !== code && (doc.canonicalCode.startsWith(code) || code.startsWith(doc.canonicalCode))) {
-        return this.config.boosts.codePrefix;
-      }
-    }
-    return 0;
-  }
-
-  private numericBoost(doc: IndexedDoc, queryTerms: Set<string>): number {
-    if (doc.attributeNumbers.size === 0) return 0;
-    let boost = 0;
-    for (const term of queryTerms) {
-      if (doc.attributeNumbers.has(term)) {
-        boost += this.config.boosts.numericAttribute;
-      }
-    }
-    return boost;
   }
 }

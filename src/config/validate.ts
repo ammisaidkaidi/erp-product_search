@@ -38,6 +38,7 @@ export function validateConfig(config: SearchEngineConfig): string[] {
   const vector = config.retrieval.vector;
   check(vector.topK >= 1 && vector.topK <= 1000, "retrieval.vector.top_k", "must be within [1, 1000]");
   check(["cosine", "inner-product"].includes(vector.metric), "retrieval.vector.metric", "must be cosine|inner-product");
+  check(vector.minScore >= -1 && vector.minScore <= 1, "retrieval.vector.min_score", "must be within [-1, 1]");
 
   // fusion
   const fusion = config.fusion;

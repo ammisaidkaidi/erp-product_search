@@ -47,6 +47,10 @@ export interface VectorConfig {
   enabled: boolean;
   topK: number;
   metric: VectorMetric;
+  /** Minimum cosine similarity for a vector hit to be considered a candidate.
+   *  Filters noise for out-of-domain queries ("xyzabc999"). Tune per embedding
+   *  model: hashing ~0.15, e5/BGE-family models usually >= 0.5 for unrelated text. */
+  minScore: number;
 }
 
 export interface FusionConfig {
@@ -212,6 +216,7 @@ export const DEFAULT_CONFIG: SearchEngineConfig = {
       enabled: true,
       topK: 50,
       metric: "cosine",
+      minScore: 0.15,
     },
   },
   fusion: {

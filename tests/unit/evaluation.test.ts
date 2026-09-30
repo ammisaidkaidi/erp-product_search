@@ -47,8 +47,8 @@ describe("IR metrics (hand-verified)", () => {
     // reversed order of the top two: A@1 (7/1), C@2 (15/log2(3))
     const dcg = 7 / Math.log2(2) + 15 / Math.log2(3);
     expect(ndcgAtK(gains, ["A", "C"], 10)).toBeCloseTo(dcg / idcg, 5);
-    // non-relevant entries in between
-    expect(ndcgAtK(gains, ["X", "C"], 10)).toBeCloseTo(15 / Math.log2(2) / idcg, 5);
+    // non-relevant entries in between (C pushed to rank 2)
+    expect(ndcgAtK(gains, ["X", "C"], 10)).toBeCloseTo(15 / Math.log2(3) / idcg, 5);
   });
 
   it("computeMetrics aggregates over queries", () => {

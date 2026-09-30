@@ -6,7 +6,7 @@
  * human-labeled in the SAME format:
  *   {"query": "...", "productId": "P000123", "label": 3}   # 0-4 scale
  *
- * Regenerate: npx tsx scratch/gen-gold.ts
+ * Regenerate: npx tsx scripts/gen-gold.ts
  */
 import { generateFixtureCatalog } from "../src/benchmark/catalog-generator.js";
 import { writeFileSync } from "node:fs";

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>@erp/product-search — démo navigateur</title>
+<style>
+  :root {
+    --bg: #f4f6f9;
+    --card: #ffffff;
+    --ink: #1c2733;
+    --muted: #5b6b7b;
+    --line: #dfe6ee;
+    --accent: #0f62d6;
+    --accent-soft: #e8f0fd;
+    --bm25: #b45309;
+    --bm25-bg: #fef3c7;
+    --vec: #7c3aed;
+    --vec-bg: #f1e9fe;
+    --rrf: #0f766e;
+    --rrf-bg: #dcfaf4;
+    --rerank: #be185d;
+    --rerank-bg: #fce7f3;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  header {
+    background: linear-gradient(135deg, #0b2f6b 0%, #0f62d6 70%, #2f7ff0 100%);
+    color: #fff;
+    padding: 28px 20px 24px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  header h1 { margin: 0 0 6px; font-size: 22px; letter-spacing: .2px; }
+  header p { margin: 0; opacity: .85; font-size: 13.5px; max-width: 760px; }
+  header a { color: #cfe1ff; }
+  .search-zone { padding: 18px 20px 6px; }
+  .search-box {
+    display: flex; gap: 0; max-width: 760px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    box-shadow: 0 6px 24px rgba(15, 40, 80, .08); overflow: hidden;
+  }
+  .search-box input {
+    flex: 1; border: 0; outline: 0; padding: 14px 16px; font-size: 16px; color: var(--ink);
+    background: transparent;
+  }
+  .search-box .hint {
+    padding: 0 16px; display: flex; align-items: center; color: var(--muted);
+    font-size: 12.5px; border-left: 1px solid var(--line); background: #fafcff;
+  }
+  #status { color: var(--muted); font-size: 13px; margin: 10px 0 0; max-width: 760px; }
+  .samples { margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 8px; max-width: 860px; }
+  .sample {
+    border: 1px solid var(--line); background: var(--card); color: var(--accent);
+    border-radius: 999px; padding: 4px 12px; font-size: 12.5px; cursor: pointer;
+  }
+  .sample:hover { background: var(--accent-soft); border-color: #b9d2f7; }
+  main {
+    display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 18px;
+    padding: 16px 20px 40px; align-items: start;
+  }
+  @media (max-width: 860px) { main { grid-template-columns: 1fr; } }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .8px; color: var(--muted); margin: 4px 0 10px; }
+  .result {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 14px; margin-bottom: 10px;
+  }
+  .result-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .rank {
+    background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 12px;
+    width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+    flex: none;
+  }
+  .result h3 { margin: 0; font-size: 15px; font-weight: 600; }
+  .code-badge {
+    font-family: var(--mono); font-size: 12px; background: #eef2f7; border: 1px solid var(--line);
+    padding: 1px 7px; border-radius: 5px; color: var(--ink);
+  }
+  .meta { color: var(--muted); font-size: 12.5px; margin: 4px 0 6px 34px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px 34px; }
+  .chip {
+    background: #f2f5f9; border: 1px solid var(--line); border-radius: 5px;
+    font-size: 11.5px; padding: 1px 7px; color: var(--muted);
+  }
+  .chip-attr { background: var(--rrf-bg); border-color: #b5ece2; color: #075e56; }
+  .chip-code { background: var(--bm25-bg); border-color: #f3ddA0; color: #92400e; font-family: var(--mono); }
+  .scorebar { height: 4px; background: #edf1f6; border-radius: 3px; margin: 2px 0 8px 34px; max-width: 420px; }
+  .scorebar-fill { height: 100%; background: linear-gradient(90deg, #2f7ff0, #0f62d6); border-radius: 3px; }
+  .sources { display: flex; flex-wrap: wrap; gap: 6px; margin-left: 34px; }
+  .src { font-size: 11px; padding: 1px 7px; border-radius: 4px; font-weight: 600; }
+  .src-bm25 { background: var(--bm25-bg); color: var(--bm25); }
+  .src-vec { background: var(--vec-bg); color: var(--vec); }
+  .src-rrf { background: var(--rrf-bg); color: var(--rrf); font-family: var(--mono); font-weight: 500; }
+  .src-rerank { background: var(--rerank-bg); color: var(--rerank); }
+  .empty { color: var(--muted); background: var(--card); border: 1px dashed var(--line); padding: 18px; border-radius: 10px; }
+  .pipeline {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px;
+    position: sticky; top: 12px;
+  }
+  .pipeline h2 { margin-top: 6px; }
+  .pblock { border-top: 1px solid var(--line); padding: 10px 0; }
+  .pblock h3 { margin: 0 0 6px; font-size: 12.5px; color: var(--muted); font-weight: 600; }
+  .mono { font-family: var(--mono); font-size: 13px; }
+  .small { font-size: 12px; color: var(--muted); margin: 2px 0; }
+  .pblock p { margin: 3px 0; }
+  .corr { display: flex; align-items: baseline; gap: 7px; font-size: 13px; }
+  .corr .from { text-decoration: line-through; color: var(--muted); font-family: var(--mono); }
+  .corr .arrow { color: var(--accent); }
+  .corr .to { font-family: var(--mono); font-weight: 600; }
+  .corr .kind { font-size: 11px; color: var(--muted); margin-left: auto; }
+  .corr.bad { color: #b91c1c; font-size: 12.5px; }
+  .trow { display: flex; justify-content: space-between; font-size: 13px; }
+  footer { color: var(--muted); font-size: 12px; padding: 0 20px 26px; max-width: 1080px; margin: 0 auto; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>@erp/product-search — démo navigateur</h1>
+      <p>
+        La vraie librairie — normaliseur déterministe (fautes, synonymes, unités, codes), BM25F,
+        embeddings, fusion RRF, moteur — compilée et exécutée <strong>100&nbsp;% dans votre navigateur</strong>.
+        Aucun serveur, aucune requête réseau : le catalogue est indexé au chargement de la page.
+      </p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="search-zone">
+      <div class="search-box">
+        <input id="q" type="text" placeholder="Rechercher un produit… (ex. tube 110 blnc)" autocomplete="off" spellcheck="false" aria-label="Requête">
+        <span class="hint">Enter ↵</span>
+      </div>
+      <p id="status">initialisation…</p>
+      <div class="samples" id="samples"></div>
+    </section>
+
+    <main>
+      <section aria-label="Résultats">
+        <h2>Résultats</h2>
+        <div id="results"><p class="empty">Chargement de l'index…</p></div>
+      </section>
+      <aside aria-label="Pipeline">
+        <div class="pipeline" id="pipeline"><h2>Pipeline</h2><p class="small">Lancez une recherche…</p></div>
+      </aside>
+    </main>
+  </div>
+
+  <footer id="footer"></footer>
+
+  <script>
+/*__DEMO_BUNDLE__*/
+  </script>
+</body>
+</html>

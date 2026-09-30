@@ -73,6 +73,23 @@ Benchmark (memory store, 200 queries, hashing embedder):
 
 Methodology, optimization log and scaling analysis: [`docs/performance.md`](docs/performance.md).
 
+## Browser demo
+
+`docs/index.html` is a **self-contained demo page** (single file, ~92 KB): the
+actual library — deterministic French normalizer, BM25F index, hashing
+embeddings, RRF fusion, engine with per-stage timings — compiled with esbuild
+and executed **100 % in the browser** against the 200-product fixture catalog.
+No server, no network calls; the page even works opened directly from disk.
+
+```bash
+npm run build:web        # rebuild docs/index.html from web/ sources
+```
+
+The browser build swaps exactly two Node APIs for equivalent shims
+(`web/shims/`): a bit-exact synchronous SHA-1/SHA-256 (verified against
+`node:crypto` in the test suite) and throw-stubs for the server-side YAML
+config loader. Sources: `web/` (composition root, DOM glue, build script).
+
 ## Documentation
 
 - [`docs/architecture.md`](docs/architecture.md) — module map, data flow, key decisions

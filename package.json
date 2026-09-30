@@ -23,7 +23,9 @@
     "test:integration": "vitest run --dir tests/integration",
     "test:watch": "vitest",
     "cli": "tsx src/cli/index.ts",
-    "benchmark": "tsx src/cli/index.ts benchmark"
+    "benchmark": "tsx src/cli/index.ts benchmark",
+    "build:web": "node web/build-demo.mjs",
+    "typecheck:web": "tsc -p web/tsconfig.json --noEmit"
   },
   "keywords": [
     "search",
@@ -54,6 +56,7 @@
   "devDependencies": {
     "@types/node": "^20.17.10",
     "@types/pg": "^8.11.10",
+    "esbuild": "^0.28.2",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"

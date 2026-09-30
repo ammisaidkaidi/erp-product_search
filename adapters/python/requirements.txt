@@ -1,0 +1,9 @@
+# Local model worker dependencies (optional, Python side).
+# The TypeScript library works WITHOUT these (fallback providers are used);
+# install only when enabling von / tinyllm providers:
+#   pip install -r adapters/python/requirements.txt
+#
+# CPU-only torch is enough for tiny models:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch>=2.2
+transformers>=4.44
